@@ -1,0 +1,43 @@
+// GPC Online Library
+/* 
+    Designed for Superstar Karaoke, this script presses A once per second and holds down on the left stick.
+    This allows the game to be played indefinitely with no input from the user.
+    Script is enabled and disabled by clicking RS.
+*/
+
+int enabled;
+
+main 
+{
+	if (event_press(XB1_RS))
+		enabled = !enabled;
+		
+	if (enabled) 
+    {
+		combo_run(Combo_A);
+        //combo_run(Combo_B);
+	}
+	else 
+    {
+		combo_stop(Combo_A);
+        //combo_stop(Combo_B);
+	}
+}
+
+combo Combo_A 
+    {
+        set_val(XB1_A, 100);
+        wait(10);
+        set_val(XB1_A, 0);
+        set_val(XB1_DOWN, 100);
+        wait(10);
+        set_val(XB1_DOWN, 0);
+        wait(1000);
+    }
+
+/*
+combo Combo_B
+    {
+        set_val (XB1_LY, 100);
+    }
+*/
