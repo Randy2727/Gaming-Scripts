@@ -1,7 +1,8 @@
 // GPC Online Library
 /* 
-    Designed for Superstar Karaoke, this script presses A once per second and holds down on the left stick.
-    This allows the game to be played with no input from the user until a character levels up.
+    Designed for Superstar Karaoke, this script presses A once every five seconds and periodically presses down on the D pad.
+    This allows the game to be played with no input from the user until a character levels up at which point the level up screen must be cleared manually.
+    The game is very prone to crashing while macroing, seemingly caused by excessive button/stick inputs. The wait time for A presses has been extended in an attempt to allow for longer idle sessions without user input.
     Script is enabled and disabled by clicking RS.
 */
 
