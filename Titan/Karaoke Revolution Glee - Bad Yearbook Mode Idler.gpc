@@ -1,0 +1,35 @@
+/*
+	Designed for Karaoke Revolution Glee, this script will attmpt to take photos during the song, move to, and play the next song. This is not perfect and often misses a photo, or skips songs. However it is still a good way to passively accumulate dancers and complete most of the game without any user interaction.
+
+	Script is enabled and disabled by pressing LS
+*/
+
+int enabled;
+
+main 
+{
+    if (event_press(XB1_RS))
+        enabled = !enabled;
+
+    if (enabled) 
+    {
+        combo_run(Combo_A);
+    }
+    
+    else 
+    {
+        combo_stop(Combo_A);
+    }
+}
+
+combo Combo_A 
+    {
+        set_val(XB1_DOWN, 100);
+        wait(10);
+        set_val(XB1_DOWN, 0);
+        wait(500);
+        set_val(XB1_A, 100);
+        wait(10);
+        set_val(XB1_A, 0);
+        wait(500);
+    }

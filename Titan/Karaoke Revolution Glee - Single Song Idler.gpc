@@ -1,0 +1,31 @@
+/*
+    Designed for Karaoke Revolution Glee, this script will repeatedly play one song as well as take all available yearbook photos for that song if played in yearbook mode.
+
+    Script is enabled and disabled by pressing RS.
+*/
+
+int enabled;
+
+main 
+{
+    if (event_press(XB1_RS))
+        enabled = !enabled;
+
+    if (enabled) 
+    {
+        combo_run(Combo_A);
+    }
+    
+    else 
+    {
+        combo_stop(Combo_A);
+    }
+}
+
+combo Combo_A 
+    {
+        set_val(XB1_A, 100);
+        wait(10);
+        set_val(XB1_A, 0);
+        wait(200);
+    }
