@@ -7,40 +7,56 @@ int RS = 0;
 main 
 {
 
-if ((event_press (XB360_LS)) && (RS == 0)) 
-	{LS = 1;} // LS enables turbo press when pressed if turbo hold is disabled
+//Toggles single button press turbo mode on and off if all button turbo mode is off.
 
-if ((event_press (XB360_LS)) && (LS == 1)) 
-	{LS = 0;} //LS disables turbo press when pressed if turbo press is enabled
+if (event_press (XB360_LS))
+	{
+		if ((LS == 0) && (RS == 0))
+			{
+				LS = 1;
+			}
+		else if ((LS == 1) && (RS == 0))
+			{
+				LS = 0;
+			}	
+	}	
 
-if ((event_press (XB360_RS)) && (LS == 0)) 
-	{RS = 1;} // RS enables turbo hold when pressed if turbo press is disabled
+//Toggles all button turbo mode on and off if single button turbo mode is off.
 
-if ((event_press (XB360_RS)) && (RS == 1)) 
-	{RS = 0;} //RS disables turbo hold when pressed if turbo hold is enabled
+if (event_press (XB360_RS))
+	{
+		if ((RS == 0) && (LS == 0))
+			{
+				RS = 1;
+			}
+		else if ((RS == 1) && (LS == 0))
+			{
+				RS = 0;
+			}
+	}
 
 //Functions to control turbo press combos
 
 if 
-    ((LS == 1) && (event_press (XB360_A))) 
+    ((LS == 1) && (get_val (XB360_A))) 
     {combo_run (Press_A);}
 else
     {combo_stop (Press_A);}
 
 if 
-    ((LS == 1) && (event_press (XB360_B))) 
+    ((LS == 1) && (get_val (XB360_B))) 
     {combo_run (Press_B);}
 else
     {combo_stop (Press_B);}
 
 if 
-    ((LS == 1) && (event_press (XB360_X))) 
+    ((LS == 1) && (get_val (XB360_X))) 
     {combo_run (Press_X);}
 else
     {combo_stop (Press_X);}
 
 if 
-    ((LS == 1) && (event_press (XB360_Y))) 
+    ((LS == 1) && (get_val (XB360_Y))) 
     {combo_run (Press_Y);}
 else
     {combo_stop (Press_Y);}
@@ -55,7 +71,8 @@ if
 if
 	(RS == 0) 
 	{combo_stop (Hold_All);}
-}
+} 
+//end main
 
 //Combos
 
