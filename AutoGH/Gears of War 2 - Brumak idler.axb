@@ -1,58 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <XBScript>
   <Information>
     <Game>Gears of War 2</Game>
     <Title>Brumak idler</Title>
     <Description>Used to idle kills for Seriosuly 2.0. For use with Act 5 Chapter 5. Load up the checkpoint and let it run. The script will navigate the on screen instruction pop ups.</Description>
-    <Version>1</Version>
+    <Version>2</Version>
   </Information>
   <ActionGroups>
-	    <ActionGroup>
-
-	    	<Name>[Main]</Name>
-
-	    	<!--One time two second delay to switch focus to Xbox app if using VirtualTurbo-->
-		    <Wait Delay="2000" />
-
-	    	<Group Name="Actions" Repeat="1000" />
-
-	    </ActionGroup>
-
-	    <ActionGroup>
-	      
-		    <Name>Actions</Name>
-
-		    <!--Bypass the menu at the start of the level-->
-		    <Wait Delay="500" />
-		    <Press Controller="1" ButtonMask="8192" Hold="10" Wait="150" Repeat="1" />
-		    <Wait Delay="2500" /> 
-		    <Press Controller="1" ButtonMask="16" Hold="10" Wait="300" Repeat="1" />
-
-		    <!--start walking forward-->
-		    <Press Controller="1" LSX="0" LSY="-25600" Hold="5000" Wait="5000" Repeat="1" />
-
-		    <!--Aim RS1-->
-		    <Press Controller="1" RSX="-11520" RSY="12800" Hold="750" Wait="750" Repeat="1" />
-
-		    <!--Shoot1-->
-		    <Press Controller="1" ButtonMask="64" Hold="150" Wait="4000" Repeat="1" />
-
-		    <!--Aim RS2-->
-		    <Press Controller="1" RSX="-11520" RSY="-15360" Hold="250" Wait="250" Repeat="1" />
-
-		    <!--Shoot2-->
-		    <Press Controller="1" ButtonMask="64" Hold="10" Wait="4150" Repeat="1" />
-
-		    <!--Reload the scene-->
-			<Press Controller="1" ButtonMask="4096" Hold="10" Wait="650" Repeat="1" />
-		    <Press Controller="1" ButtonMask="512" Hold="10" Wait="300" Repeat="1" />
-		    <Press Controller="1" ButtonMask="16" Hold="10" Wait="300" Repeat="2" />
-
-		    <Wait Delay="12500" />
-
-	    </ActionGroup>
+    <ActionGroup>
+      <Name>[Main]</Name>
+      <Wait Delay="2000" />
+      <Group Name="Actions" Repeat="1000" />
+    </ActionGroup>
+    <ActionGroup>
+      <Name>Actions</Name>
+      <Wait Delay="500" />
+      <Press Controller="1" ButtonMask="8192" Hold="100" Wait="150" Repeat="1" />
+      <Wait Delay="2500" />
+      <Press Controller="1" ButtonMask="16" Hold="100" Wait="300" Repeat="1" />
+      <Press Controller="1" LSX="0" LSY="-25600" Hold="5000" Wait="5000" Repeat="1" />
+      <Press Controller="1" RSX="-11520" RSY="12800" Hold="1250" Wait="1250" Repeat="1" />
+      <Press Controller="1" ButtonMask="64" Hold="150" Wait="4000" Repeat="1" />
+      <Press Controller="1" RSX="-11520" RSY="-15360" Hold="350" Wait="750" Repeat="1" />
+      <Press Controller="1" ButtonMask="64" Hold="150" Wait="4150" Repeat="1" />
+      <Press Controller="1" ButtonMask="4096" Hold="100" Wait="650" Repeat="1" />
+      <Press Controller="1" ButtonMask="512" Hold="100" Wait="300" Repeat="1" />
+      <Press Controller="1" ButtonMask="16" Hold="100" Wait="300" Repeat="2" />
+      <Wait Delay="12500" />
+    </ActionGroup>
   </ActionGroups>
 </XBScript>
-
-    
-
