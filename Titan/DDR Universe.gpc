@@ -1,0 +1,157 @@
+//Written for DDR/DS Universe, this script will turbo A, B, X, and Y while pressed and enabled with LS or will hold turbo for the buttons while RS enabled, allowing for completion of songs and some challenges. 
+
+//0 = disabled, 1 = enabled
+int LS = 0;
+int RS = 0;
+int RT = 0;
+
+main 
+{
+
+//Toggles single button press turbo mode on and off if all button turbo mode is off.
+
+if (event_press (XB360_LS))
+	{
+		if ((LS == 0) && (RS == 0))
+			{
+				LS = 1;
+			}
+		else if ((LS == 1) && (RS == 0))
+			{
+				LS = 0;
+			}	
+	}	
+
+//Toggles all button turbo mode on and off if single button turbo mode is off.
+
+if (event_press (XB360_RS))
+	{
+		if ((RS == 0) && (LS == 0))
+			{
+				RS = 1;
+			}
+		else if ((RS == 1) && (LS == 0))
+			{
+				RS = 0;
+			}
+	}
+
+//Hold RT to enable/disable all button turbo
+
+if (get_val (XB360_RT))
+	{
+		RT = 1;
+	}
+else
+	{
+		RT = 0;
+	}
+
+//Functions to control turbo press combos
+
+if 
+    ((LS == 1) && (get_val (XB360_A))) 
+    {combo_run (Press_A);}
+else
+    {combo_stop (Press_A);}
+
+if 
+    ((LS == 1) && (get_val (XB360_B))) 
+    {combo_run (Press_B);}
+else
+    {combo_stop (Press_B);}
+
+if 
+    ((LS == 1) && (get_val (XB360_X))) 
+    {combo_run (Press_X);}
+else
+    {combo_stop (Press_X);}
+
+if 
+    ((LS == 1) && (get_val (XB360_Y))) 
+    {combo_run (Press_Y);}
+else
+    {combo_stop (Press_Y);}
+
+
+//Function to control turbo hold
+
+if
+	(RS == 1) 
+	{combo_run (Hold_All);}
+
+if
+	(RS == 0) 
+	{combo_stop (Hold_All);}
+
+if
+	(RT == 1)
+	{combo_run (Hold_All2);}
+else
+	{
+	combo_stop (Hold_All2);
+	}
+} 
+//end main
+
+//Combos
+
+combo Press_A
+{
+	set_val (XB360_A, 100);
+	wait (10);
+	set_val (XB360_A, 0);
+	wait (10);
+}
+
+combo Press_B
+{
+	set_val (XB360_B, 100);
+	wait (10);
+	set_val (XB360_B, 0);
+	wait (10);
+}
+
+combo Press_X
+{
+	set_val (XB360_X, 100);
+	wait (10);
+	set_val (XB360_X, 0);
+	wait (10);
+}
+
+combo Press_Y
+{
+	set_val (XB360_Y, 100);
+	wait (10);
+	set_val (XB360_Y, 0);
+	wait (10);
+}
+
+combo Hold_All
+{
+	set_val (XB360_A, 100);
+	set_val (XB360_B, 100);
+	set_val (XB360_X, 100);
+	set_val (XB360_Y, 100);
+	wait (10);
+	set_val (XB360_A, 0);
+	set_val (XB360_B, 0);
+	set_val (XB360_X, 0);
+	set_val (XB360_Y, 0);
+	wait (10);
+}
+
+combo Hold_All2
+{
+	set_val (XB360_A, 100);
+	set_val (XB360_B, 100);
+	set_val (XB360_X, 100);
+	set_val (XB360_Y, 100);
+	wait (10);
+	set_val (XB360_A, 0);
+	set_val (XB360_B, 0);
+	set_val (XB360_X, 0);
+	set_val (XB360_Y, 0);
+	wait (10);
+}
