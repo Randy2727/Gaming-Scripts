@@ -1,0 +1,29 @@
+/* 
+Presses and holds RT when combo is activated
+Down on the d pad activates and deactivates the hold
+*/
+
+int hold;
+
+main 
+	{
+		if (event_press (XB360_DOWN))
+			{
+				hold = !hold;
+			} 
+		
+
+		if (hold && get_val(XB360_B)) 
+			{
+				combo_run (B);
+			}
+		
+		else 
+			{
+				combo_stop (B);
+			}
+
+combo B 
+	{ 
+	    set_val (XB360_RT, 100);
+	}

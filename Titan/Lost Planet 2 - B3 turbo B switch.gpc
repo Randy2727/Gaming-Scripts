@@ -1,0 +1,18 @@
+// Turbo B on/off for Lost Planet 2 controller style B3
+
+int turbo;
+
+main 
+	{
+		if (event_press (XB360_DOWN)) {turbo = !turbo;} // Down on d-pad enables/disables
+		if (turbo && get_val(XB1_B)) {combo_run (B);} // If enabled and B is pressed, run combo
+		else combo_stop (B); // Otherwise stop combo
+	}
+
+combo B 
+	{ 
+	    set_val (XB360_B, 100);
+	    wait (1);
+	    set_val (XB360_B, 0);
+	    wait (1);
+	}
