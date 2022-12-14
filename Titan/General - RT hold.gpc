@@ -15,15 +15,16 @@ main
 
 		if (hold && get_val(XB360_B)) 
 			{
-				combo_run (B);
+				combo_run(combo_a);
 			}
 		
 		else 
 			{
-				combo_stop (B);
+				combo_stop(combo_a);
 			}
+    }
 
-combo B 
+combo combo_a
 	{ 
 	    set_val (XB360_RT, 100);
 	}
