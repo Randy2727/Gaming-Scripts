@@ -1,0 +1,33 @@
+main 
+{
+    if (event_press(XB360_RS)) //RS executes combo, replace XB360_RS with any other button to change combo execution button
+        {
+            combo_run(Combo_A);
+        }
+}
+
+combo Combo_A
+    {
+        set_val(XB360_Y, 100);
+        set_val(XB360_A, 100); //Presses first buttons
+        wait(100); //waits for N milliseconds
+        set_val(XB360_Y, 0);
+        set_val(XB360_A, 0); //Releases first buttons
+        wait (100) 
+        
+        set_val(XB360_B, 100); //Presses second button
+        wait(100);
+        set_val(XB360_B, 0); //Releases second button
+        wait(100);
+        
+        set_val(XB360_X, 100); //Presses third button
+        wait(100);
+        set_val(XB360_X, 0); //Releases third button
+        wait(100);
+        
+        set_val(XB360_DOWN, 100); //Presses fourth button
+        wait(100);
+        set_val(XB360_DOWN, 0); //Releases fourth button
+        wait(100);
+    }
+    

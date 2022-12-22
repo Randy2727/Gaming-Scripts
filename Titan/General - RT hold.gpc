@@ -4,6 +4,7 @@ Down on the d pad activates and deactivates the hold
 */
 
 int hold;
+int time = 30000;
 
 main 
 	{
@@ -13,7 +14,7 @@ main
 			} 
 		
 
-		if (hold && get_val(XB360_B)) 
+		if (hold) 
 			{
 				combo_run(combo_a);
 			}
@@ -27,4 +28,5 @@ main
 combo combo_a
 	{ 
 	    set_val (XB360_RT, 100);
+        wait (time);
 	}
