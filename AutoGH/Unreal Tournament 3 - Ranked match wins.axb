@@ -3,13 +3,13 @@
   <Information>
     <Game>Unreal Tournament 3</Game>
     <Title>Ranked match wins</Title>
-    <Description>Wins ranked matches for player 1 via player 2 quitting out. This script will not recover from connection failures or randoms in matchmaking.
+    <Description>Wins ranked matches for player 1 via player 2 quitting out. This script will generally not recover from connection failures or randoms in matchmaking. Babysitting is required. Script will generally run for 30-60 minutes before it encounters an issue and requires user input.
 
 Play one match manually before running script using the following settings:
 Player 1: Multiplayer &gt; Host match &gt; Duel &gt; Server &gt; Ranked match &gt; Start
 Player 2: Multiplayer &gt; Quick match &gt; Match type: Ranked match &gt; Game mode: Duel &gt; Find match
 
-Start script from the main menu after finishing the first manual game.
+Start script from the main menu after finishing the first manual game with campaign highlighted for both players.
 
 Assumes load times based on P1 being XSX and P2 being Xbox 360 E (both wired). You may need to make some timing adjustments based on your setup.</Description>
     <Version>2</Version>
@@ -31,11 +31,15 @@ Assumes load times based on P1 being XSX and P2 being Xbox 360 E (both wired). Y
       <Press Controller="1" ButtonMask="16" Hold="100" Wait="1000" Repeat="1" />
       <Press Controller="1" ButtonMask="4096" Hold="100" Wait="1000" Repeat="1" />
       <Press Controller="1" ButtonMask="16" Hold="100" Wait="5000" Repeat="1" Comment="Player 1 hosts match" />
-      <Press Controller="2" ButtonMask="16" Hold="100" Wait="33000" Repeat="1" Comment="Selects quick match and waits for join/load time (Xbox 360 E)" />
+      <Press Controller="2" ButtonMask="16" Hold="100" Wait="10000" Repeat="1" Comment="Selects quick match" />
+      <Press Controller="2" ButtonMask="16" Hold="100" Wait="1000" Repeat="1" Comment="Attempts to recover if match not found" />
+      <Press Controller="2" ButtonMask="512" Hold="100" Wait="1000" Repeat="2" />
+      <Press Controller="2" ButtonMask="16" Hold="100" Wait="1000" Repeat="1" />
+      <Press Controller="2" ButtonMask="16" Hold="100" Wait="30000" Repeat="1" Comment="Waits for maximum observed join time" />
       <Press Controller="1" ButtonMask="16" Hold="100" Wait="2000" Repeat="1" />
       <Press Controller="1" RT="255" Hold="100" Wait="8000" Repeat="1" Comment="Starts match | Script broke here after ~20 games" />
       <Press Controller="2" ButtonMask="4096" Hold="100" Wait="1000" Repeat="1" />
-      <Press Controller="2" ButtonMask="128" Hold="100" Wait="1000" Repeat="1" />
+      <Press Controller="2" ButtonMask="128" Hold="100" Wait="2000" Repeat="1" />
       <Press Controller="2" ButtonMask="16" Hold="100" Wait="20000" Repeat="1" Comment="Disconnects P2, waits for P1 match end" />
       <Press Controller="1" ButtonMask="32" Hold="100" Wait="5000" Repeat="1" Comment="Script end, repeat x500" />
       <Loop Target="0" Repeat="500" />
