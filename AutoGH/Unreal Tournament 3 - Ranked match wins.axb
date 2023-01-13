@@ -30,16 +30,14 @@ Assumes load times based on P1 being XSX and P2 being Xbox 360 E (both wired). Y
       <Press Controller="1" ButtonMask="256" Hold="100" Wait="1000" Repeat="1" />
       <Press Controller="1" ButtonMask="16" Hold="100" Wait="1000" Repeat="1" />
       <Press Controller="1" ButtonMask="4096" Hold="100" Wait="1000" Repeat="1" />
-      <Press Controller="1" ButtonMask="16" Hold="100" Wait="5000" Repeat="1" Comment="Player 1 hosts match" />
-      <Press Controller="2" ButtonMask="16" Hold="100" Wait="10000" Repeat="1" Comment="Selects quick match" />
-      <Press Controller="2" ButtonMask="16" Hold="100" Wait="1000" Repeat="1" Comment="Attempts to recover if match not found" />
-      <Press Controller="2" ButtonMask="512" Hold="100" Wait="1000" Repeat="2" />
-      <Press Controller="2" ButtonMask="16" Hold="100" Wait="1000" Repeat="1" />
+      <Press Controller="1" ButtonMask="16" Hold="100" Wait="8000" Repeat="1" Comment="Player 1 hosts match" />
+      <Press Controller="2" ButtonMask="16" Hold="100" Wait="10000" Repeat="1" Comment="Joins quick match" />
+      <Press Controller="2" ButtonMask="16" Hold="100" Wait="1000" Repeat="3" Comment="Attempts to recover if match not found." />
       <Press Controller="2" ButtonMask="16" Hold="100" Wait="30000" Repeat="1" Comment="Waits for maximum observed join time" />
       <Press Controller="1" ButtonMask="16" Hold="100" Wait="2000" Repeat="1" />
       <Press Controller="1" RT="255" Hold="100" Wait="8000" Repeat="1" Comment="Starts match | Script broke here after ~20 games" />
       <Press Controller="2" ButtonMask="4096" Hold="100" Wait="1000" Repeat="1" />
-      <Press Controller="2" ButtonMask="128" Hold="100" Wait="2000" Repeat="1" />
+      <Press Controller="2" ButtonMask="128" Hold="100" Wait="3000" Repeat="1" />
       <Press Controller="2" ButtonMask="16" Hold="100" Wait="20000" Repeat="1" Comment="Disconnects P2, waits for P1 match end" />
       <Press Controller="1" ButtonMask="32" Hold="100" Wait="5000" Repeat="1" Comment="Script end, repeat x500" />
       <Loop Target="0" Repeat="500" />
