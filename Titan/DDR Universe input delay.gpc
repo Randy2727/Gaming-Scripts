@@ -1,0 +1,102 @@
+/*DDR Universe input delay. Adds an intentional delay to inputs for challenges that have requirements such as "get good on all notes"
+
+Note offsets are as follows, based on information found online
+
+Marvelous: +/- 16.7 ms (+/- One Frame)
+Perfect: +/- 33 ms (+/- Two Frames)
+Great: +/- 92 ms (+/- 5.5 Frames)
+Good: +/- 142 ms (+/- 8.5 Frames)
+Boo: +/- 225 ms (+/- 13.5 Frames)*/
+
+//0 = disabled, 1 = enabled
+
+int LS = 0;
+
+main
+{
+	
+if (event_press (XB360_LS))
+	{
+		if (LS == 0)
+			{
+				LS = 1;
+			}
+		else
+			{
+				LS = 0;
+			}
+	}
+
+//debug LED functions
+
+if (LS == 1)
+	{
+		set_led (LED_1, 2);
+	}
+
+if (LS == 0)
+	{
+		set_led (LED_1, 1);
+	}
+
+if ((event_press (XB360_A)) && (LS == 1))
+	{
+		combo_run (Press_A);
+	}
+
+if ((event_press (XB360_B)) && (LS == 1))
+	{
+		combo_run (Press_B);
+	}
+
+if ((event_press (XB360_X)) && (LS == 1))
+	{
+		combo_run (Press_X);
+	}
+
+if ((event_press (XB360_Y)) && (LS == 1))
+	{
+		combo_run (Press_Y);
+	}
+
+
+} //end main
+
+
+//Combos
+
+combo Press_A
+{
+	set_val (XB360_A, 0);
+	wait (120);
+	set_val (XB360_A, 100);
+	wait (10);
+	set_val (XB360_A, 0);
+}
+
+combo Press_B
+{
+	set_val (XB360_B, 0);
+	wait (120);
+	set_val (XB360_B, 100);
+	wait (10);
+	set_val (XB360_B, 0);
+}
+
+combo Press_X
+{
+	set_val (XB360_X, 0);
+	wait (120);
+	set_val (XB360_X, 100);
+	wait (10);
+	set_val (XB360_X, 0);
+}
+
+combo Press_Y
+{
+	set_val (XB360_Y, 0);
+	wait (120);
+	set_val (XB360_Y, 100);
+	wait (10);
+	set_val (XB360_Y, 0);
+}
